@@ -2,10 +2,10 @@ from logging import lastResort
 import imagehash, os, glob, shutil
 from PIL import Image
 
-target = r'D:\Engineering\Work\Codinghub\5-3-2022\billet_crop_backup_\compair_service\target\\'                    # ocr folder
-folder_backup = r'D:\Engineering\Work\Codinghub\5-3-2022\billet_crop_backup_\compair_service\folder_backup\\'      # backup
-img_folder = r'D:\Engineering\Work\Codinghub\5-3-2022\billet_crop_backup_\compair_service\img_folder\\'            # img folder
-folder = r'D:\Engineering\Work\Codinghub\5-3-2022\billet_crop_backup_\compair_service\folder\\'                    # folder
+target = r'compair_service\target\\'                    # ocr folder
+folder_backup = r'compair_service\folder_backup\\'      # backup
+img_folder = r'compair_service\img_folder\\'            # img folder
+folder = r'compair_service\folder\\'                    # folder
 
 def delete(folder):
     count = 0
