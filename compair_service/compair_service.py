@@ -1,28 +1,25 @@
-from logging import lastResort
+from cv2 import FileNode_TYPE_MASK
 import imagehash, os, glob, shutil
 from PIL import Image
-
-target = r'compair_service\target\\'                    # ocr folder
-folder_backup = r'compair_service\folder_backup\\'      # backup
-img_folder = r'compair_service\img_folder\\'            # img folder
-folder = r'compair_service\folder\\'                    # folder
 
 def delete(folder):
     count = 0
     file_list = glob.glob(folder + '*.*')
     for file_ in file_list:
         if os.path.exists(file_):
+            if file_.rsplit('\\', 1)[-1] == r'mockup.jpg':
+                continue
             os.remove(file_)
+            print(file_)
             count = count + 1
     print(f'total delete: {count}')
-
-#delete(target)
 
 # get lasted file
 def lasted_file(folder):
     type = r'\*jpg'
-    file = glob.glob(folder + type)
-    lasted = max(file, key=os.path.getctime)
+    file_ = glob.glob(folder + type)
+    #print(file_)
+    lasted = max(file_, key=os.path.getctime)
     return lasted
 
 def dhash_image_while(file_, folder, target):
@@ -58,23 +55,63 @@ def dhash_image_while(file_, folder, target):
         print('Flag: False')
         # shutil.copy(file_, folder_backup)
 
-#dhash_image_while(file_, folder, target)
-# print('lasted_file: ', lasted_file(folder))
-# dhash_image_while(lasted_file(folder), folder, target)
+def stack(folder):
+    folder_list = os.listdir(folder)
+    temp = []
+    count = 0
+    for file_ in folder_list:
+        temp.append(file_)
+        count = count + 1
+    #print(f'temp_array: {temp[-10:-1]}')
+    #print(f'count: {count}')
+    temp2 = []
+    for j in temp:
+        t = folder + j
+        temp2.append(t)
+        img = Image.open(t)
+        # print(f'temp: {temp2}')
+        # print(f'img: {img}\n')
+    print(f'temp: {temp2}')
+    return temp2[-10: 0]
 
-check = '' # check lasted file
+def pare_10(file_, bf, tg):
+    flag = False
+    img1 = Image.open(file_)
+    print(f'img: {img1}')
+    hash1 = imagehash.dhash(img1, hash_size = 8)
+    print(f'hash: {hash1}')
 
-# main run
-while True:
-    if check == lasted_file(folder):
-        continue
-    elif check != lasted_file(folder):
-        file_now = lasted_file(folder)
-        print('file_now: ', file_now.rsplit('\\', 1)[-1])
-        dhash_image_while(file_now, folder, target)
-        check = file_now
+    # 10 lastest file in directory
+    #last_10 = stack(bf)   
+    last_10 = glob.glob(bf + '*.jpg')
+    print(f'last_10: {last_10}')
+    for image in last_10:
+        print(f'image: {image}')
+        # load image 2 and hash
+        img = Image.open(image)
+        print(f'img2: {img}')
+        hash2 = imagehash.dhash(img, hash_size = 8)
+        print(f'hash2: {hash2}')
 
-
+        # hashdiff
+        hashdif = hash1 - hash2
+        
+        # check hashdiff
+        if hashdif > 13:
+            flag = True
+        elif file_ != image:
+            flag = False
+            break
+    
+    # copy if isn't Dupplicate
+    if flag == True:
+        print('no')
+        shutil.copy(file_, tg)
+    elif flag == False:
+        file_name = file_.rsplit('\\', 1)[-1]
+        if file_name != 'mockup.jpg':
+            os.remove(file_)
+        print('Dupplicate')
 
 
 

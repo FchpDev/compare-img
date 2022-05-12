@@ -2,6 +2,8 @@ import imagehash
 from PIL import Image
 import glob, os, shutil
 
+from numpy import diff
+
 #ทดสอบเพิ่มให้หน่อยว่าค่าที่ควรนำมาใช้ควรเป็นตัวเลขความห่าง(hashdiff)เท่าไรดี
 
 count = 0
@@ -143,8 +145,11 @@ def autopair2txt(folder):   # phash
                 file1.write(image.rsplit('\\', 1)[-1] + ' : ' + image2.rsplit('\\', 1)[-1] + ' = ' + str(hashdiff) + '\n')
 
 def d_autopair2txt(folder):
+    diff = 18
+    up = 0
+    down = 0
     file = open('result_dpair.txt', 'w')
-    file1 = open('result_dpair_under_12.txt', 'w')
+    file1 = open(f'result_dpair_under_{diff}.txt', 'w')
     jpg_list = glob.glob(folder + '*.jpg')
     for image in jpg_list:
         img = Image.open(image)
@@ -155,9 +160,14 @@ def d_autopair2txt(folder):
             img2 = Image.open(image2)
             hash2 = imagehash.dhash(img2, hash_size = 8)
             hashdiff = hash1 - hash2
-            file.write(image.rsplit('\\', 1)[-1] + ' : ' + image2.rsplit('\\', 1)[-1] + ' = ' + str(hashdiff) + '\n')
-            if hashdiff < 18:
+            if hashdiff >= diff:
+                file.write(image.rsplit('\\', 1)[-1] + ' : ' + image2.rsplit('\\', 1)[-1] + ' = ' + str(hashdiff) + '\n')
+                up = up + 1
+            if hashdiff < diff:
                 file1.write(image.rsplit('\\', 1)[-1] + ' : ' + image2.rsplit('\\', 1)[-1] + ' = ' + str(hashdiff) + '\n')
+                file.write(image.rsplit('\\', 1)[-1] + ' : ' + image2.rsplit('\\', 1)[-1] + ' = ' + str(hashdiff) + ' #' + '\n')
+                down = down + 1
+    file.write('----------------------------------------------------\n' + f'Up: {up}\n' + f'Down: {down}')
 
 def cp_from_temp(file_, og, target):
     # read img
@@ -216,8 +226,8 @@ def delete(folder):
 # if confirm == 'yes' or 'Yes' or 'YES':
 #     delete(ocr)
 
-# folder = r'hotbillet\1\\'
-# d_autopair2txt(folder)
+folder = r'img_folder\all\\'
+d_autopair2txt(folder)
 
 
 
