@@ -1,6 +1,6 @@
 import compair_service as cm
 import cv2 as cv
-import shutil, glob
+import shutil, glob, gc
 
 target = r'img_folder\target\\'                     # ocr folder
 folder_backup = r'img_folder\folder_backup\\'       # backup
@@ -8,44 +8,20 @@ og_23ea = r'img_folder\og_23ea\\'                   # og_23ea
 folder = r'img_folder\folder\\'                     # folder
 folder_all = r'img_folder\all\\'                    # all_folder
 file_test = r'img_folder\all\1090_2.jpg'            # 1090_2
+crop_backup = r'img_folder\billet_crop_backup_2\\'
 
+# folder_all = r'D:\Engineering\Work\Codinghub\compare-img\img_folder\all\\'
+# folder_backup = r'D:\Engineering\Work\Codinghub\compare-img\img_folder\folder_backup\\'
+# target = r'D:\Engineering\Work\Codinghub\compare-img\img_folder\target\\'
+# og_23ea = r'D:\Engineering\Work\Codinghub\compare-img\img_folder\og_23ea\\'
+
+# check = ''
 # while True:
-#     if check == cm.lasted_file(folder_backup):
+#     try:
+#         current = cm.lasted_file(folder_backup)
+#     except Exception as e:
+#         # print(f'Exception {e}')
 #         continue
-#     elif check != cm.lasted_file(folder_backup):
-#         file_now = cm.lasted_file(folder_backup)
-#         print('file_now: ', file_now.rsplit('\\', 1)[-1])
-#         cm.dhash_image_while(file_now, folder_backup, target)
-#         check = file_now
-
-folder_list = glob.glob(folder_all + '*.jpg')
-check = ''
-
-# for img in folder_list:
-#     if check == cm.lasted_file(folder_backup):
-#             continue
-#     elif check != cm.lasted_file(folder_backup):
-#         file_now = cm.lasted_file(folder_backup)
-#         print('file_now: ', file_now.rsplit('\\', 1)[-1])
-#         cm.dhash_image_while(file_now, folder_backup, target)
-#         check = file_now
-#     print(f'image: {img}')
-#     shutil.copy(img, folder_backup)
-
-# cm.pare_10(file_test, folder_backup, target)
-# for img in folder_list:
-#     if check == cm.lasted_file(folder_backup):
-#             continue
-#     elif check != cm.lasted_file(folder_backup):
-#         file_now = cm.lasted_file(folder_backup)
-#         print('file_now: ', file_now.rsplit('\\', 1)[-1])
-#         cm.pare_10(file_now, folder_backup, target)
-#         check = file_now
-#     print(f'image: {img}')
-#     shutil.copy(img, folder_backup)
-
-# while True:
-#     current = cm.lasted_file(folder_backup)
 #     if check == current:
 #         continue
 #     elif check != current:
@@ -54,9 +30,21 @@ check = ''
 #         check = current
 #     print(f'---------------------------------\n')
 
-jpg_list = glob.glob(folder_all + '*.jpg')
+    # except KeyboardInterrupt:
+    #     del current
+    #     del check
+
+check = ''
+jpg_list = glob.glob(crop_backup + '*.jpg')
+
 for j in jpg_list:
-    current = cm.lasted_file(folder_backup)
+    try:
+        current = cm.lasted_file(folder_backup)
+    except Exception as e:
+        print(f'Excepton: {e}')
+        shutil.copy(j, folder_backup)
+        continue
+    # current = cm.lasted_file(folder_backup)
     if check == current:
         continue
     elif check != current:
@@ -66,4 +54,11 @@ for j in jpg_list:
     print(f'---------------------------------\n')
     shutil.copy(j, folder_backup)
 
-# cm.delete(target)
+# cm.delete(folder_backup)
+
+'''
+งาน
+    - แก้ permission denine
+    - ทดสอบ function bug lasted_file('folder')
+    - แก้ระบบใน cira core
+'''

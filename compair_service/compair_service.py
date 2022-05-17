@@ -77,44 +77,56 @@ def stack(folder):
 def pare_10(file_, bf, tg):
     flag = False
     img1 = Image.open(file_)
-    print(f'img: {img1}')
+    # print(f'img: {img1}')
     hash1 = imagehash.dhash(img1, hash_size = 8)
     print(f'hash: {hash1}')
 
     # 10 lastest file in directory
     #last_10 = stack(bf)   
-    last_10 = glob.glob(bf + '*.jpg')
+    last_10 = glob.glob(bf + '*.jpg')[-11:-1]
+    # last_10 = glob.glob(bf + '*.jpg')
     print(f'last_10: {last_10}')
     for image in last_10:
-        print(f'image: {image}')
+        # print(f'image: {image}')
         # load image 2 and hash
         img = Image.open(image)
-        print(f'img2: {img}')
+        # print(f'img2: {img}')
         hash2 = imagehash.dhash(img, hash_size = 8)
         print(f'hash2: {hash2}')
 
         # hashdiff
         hashdif = hash1 - hash2
-        
+        print(f'hashdiff {hashdif}')
         # check hashdiff
         if hashdif > 13:
             flag = True
         elif file_ != image:
             flag = False
             break
-    
+
     # copy if isn't Dupplicate
     if flag == True:
         print('no')
         shutil.copy(file_, tg)
     elif flag == False:
-        file_name = file_.rsplit('\\', 1)[-1]
-        if file_name != 'mockup.jpg':
+        # file_name = file_.rsplit('\\', 1)[-1]
+        print(len(last_10))
+        if len(last_10) != 0:
             os.remove(file_)
         print('Dupplicate')
 
+# def get_10(folder):
+#     get = glob.glob(folder + '*.jpg')
+#     get10 = get[-10:0]
+#     return get10
 
+# folder_all = r'img_folder\all\\'
+# list_file = glob.glob(folder_all + '*.jpg')
+# print(list_file)
+# print('\n')
+# print(f'last 10 files: {list_file[-11:-1]}')
 
+# print(get_10(folder_all))
 
 
 

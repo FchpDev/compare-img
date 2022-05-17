@@ -2,8 +2,6 @@ import imagehash
 from PIL import Image
 import glob, os, shutil
 
-from numpy import diff
-
 #ทดสอบเพิ่มให้หน่อยว่าค่าที่ควรนำมาใช้ควรเป็นตัวเลขความห่าง(hashdiff)เท่าไรดี
 
 count = 0
