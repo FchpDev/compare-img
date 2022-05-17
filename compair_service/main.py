@@ -54,7 +54,7 @@ for j in jpg_list:
     print(f'---------------------------------\n')
     shutil.copy(j, folder_backup)
 
-# cm.delete(folder_backup)
+# cm.delete(target)
 
 '''
 งาน

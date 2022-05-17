@@ -98,7 +98,7 @@ def pare_10(file_, bf, tg):
         hashdif = hash1 - hash2
         print(f'hashdiff {hashdif}')
         # check hashdiff
-        if hashdif > 13:
+        if hashdif > 10:
             flag = True
         elif file_ != image:
             flag = False
