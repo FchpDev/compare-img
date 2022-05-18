@@ -16,35 +16,12 @@ crop_backup = r'img_folder\billet_crop_backup_2\\'
 # og_23ea = r'D:\Engineering\Work\Codinghub\compare-img\img_folder\og_23ea\\'
 
 # check = ''
-# while True:
-#     try:
-#         current = cm.lasted_file(folder_backup)
-#     except Exception as e:
-#         # print(f'Exception {e}')
-#         continue
-#     if check == current:
-#         continue
-#     elif check != current:
-#         print(f'current: {current}')
-#         cm.pare_10(current, folder_backup, target)
-#         check = current
-#     print(f'---------------------------------\n')
-
-    # except KeyboardInterrupt:
-    #     del current
-    #     del check
-
-check = ''
-jpg_list = glob.glob(crop_backup + '*.jpg')
-
-for j in jpg_list:
+while True:
     try:
         current = cm.lasted_file(folder_backup)
     except Exception as e:
-        print(f'Excepton: {e}')
-        shutil.copy(j, folder_backup)
+        # print(f'Exception {e}')
         continue
-    # current = cm.lasted_file(folder_backup)
     if check == current:
         continue
     elif check != current:
@@ -52,13 +29,35 @@ for j in jpg_list:
         cm.pare_10(current, folder_backup, target)
         check = current
     print(f'---------------------------------\n')
-    shutil.copy(j, folder_backup)
+
+    # except KeyboardInterrupt:
+    #     del current
+    #     del check
+
+# check = ''
+# jpg_list = glob.glob(crop_backup + '*.jpg')
+
+# for j in jpg_list:
+#     try:
+#         current = cm.lasted_file(folder_backup)
+#     except Exception as e:
+#         print(f'Excepton: {e}')
+#         shutil.copy(j, folder_backup)
+#         continue
+#     # current = cm.lasted_file(folder_backup)
+#     if check == current:
+#         continue
+#     elif check != current:
+#         print(f'current: {current}')
+#         cm.pare_10(current, folder_backup, target)
+#         check = current
+#     print(f'---------------------------------\n')
+#     shutil.copy(j, folder_backup)
 
 # cm.delete(target)
 
 '''
 งาน
-    - แก้ permission denine
-    - ทดสอบ function bug lasted_file('folder')
-    - แก้ระบบใน cira core
+- แก้ duplicate บน Ciracore
+- ตามเอกสารเตรียมรับงานต่อจาก senior (Yamaha)
 '''
