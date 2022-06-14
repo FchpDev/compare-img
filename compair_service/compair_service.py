@@ -22,84 +22,38 @@ def lasted_file(folder):
     lasted = max(file_, key=os.path.getctime)
     return lasted
 
-def dhash_image_while(file_, folder, target):
-    flag = False
-    # open image1 and hash
-    img = Image.open(file_)
-    hash1 = imagehash.dhash(img, hash_size=8)
-
-    # split specific file name
-    file_name = file_.rsplit('\\', 1)[-1]
-
-    # set folder that you want to check
-    img_list = glob.glob(folder + '*.jpg')
-
-    # check image in folder
-    for image in img_list:
-        img2 = Image.open(image)
-        hash2 = imagehash.dhash(img2, hash_size=8)
-        # if hashdiff > 18(is not duplicate img) copy to target folder 
-        if hash1 - hash2 > 18:
-            flag = True
-        # else (is duplicate img) copy to folder_backup
-        elif image != file_:
-            flag = False
-            break
-
-    # if img duplicate will go in if true
-    if flag == True:
-        print('isnt dupplicate')
-        shutil.copy(file_, target)
-    elif flag == False:
-        pass
-        print('Flag: False')
-        # shutil.copy(file_, folder_backup)
-
-def stack(folder):
-    folder_list = os.listdir(folder)
-    temp = []
-    count = 0
-    for file_ in folder_list:
-        temp.append(file_)
-        count = count + 1
-    #print(f'temp_array: {temp[-10:-1]}')
-    #print(f'count: {count}')
-    temp2 = []
-    for j in temp:
-        t = folder + j
-        temp2.append(t)
-        img = Image.open(t)
-        # print(f'temp: {temp2}')
-        # print(f'img: {img}\n')
-    print(f'temp: {temp2}')
-    return temp2[-10: 0]
-
-def pare_10(file_, bf, tg):
+def pare_10(file_, bf, tg, txt):
     flag = False
     img1 = Image.open(file_)
-    # print(f'img: {img1}')
+    print(f'img: {img1}')
     hash1 = imagehash.dhash(img1, hash_size = 8)
     print(f'hash: {hash1}')
 
     # 10 lastest file in directory
-    #last_10 = stack(bf)   
-    last_10 = glob.glob(bf + '*.jpg')[-11:-1]
-    # last_10 = glob.glob(bf + '*.jpg')
+    last_10 = glob.glob(bf + '*.jpg')
     print(f'last_10: {last_10}')
+    txt.write(f'last_10: {last_10}\n')
     for image in last_10:
-        # print(f'image: {image}')
+        print(f'image: {image}')
         # load image 2 and hash
         img = Image.open(image)
-        # print(f'img2: {img}')
+        print(f'img2: {img}')
         hash2 = imagehash.dhash(img, hash_size = 8)
         print(f'hash2: {hash2}')
-
+        
         # hashdiff
         hashdif = hash1 - hash2
-        print(f'hashdiff {hashdif}')
+        
+        file_name1 = file_.rsplit('\\', 1)[-1]
+        file_name2 = image.rsplit('\\', 1)[-1]
+        txt.write(f'{file_name1} : {file_name2} ==> {hashdif}\n')
+        
         # check hashdiff
-        if hashdif > 10:
+        if hashdif > 20:
             flag = True
+        elif file_ == image:
+            flag = True
+            break
         elif file_ != image:
             flag = False
             break
@@ -109,24 +63,21 @@ def pare_10(file_, bf, tg):
         print('no')
         shutil.copy(file_, tg)
     elif flag == False:
-        # file_name = file_.rsplit('\\', 1)[-1]
-        print(len(last_10))
-        if len(last_10) != 0:
-            os.remove(file_)
         print('Dupplicate')
+    txt.write('-------------------------------------------------------------' + '\n')
 
-# def get_10(folder):
-#     get = glob.glob(folder + '*.jpg')
-#     get10 = get[-10:0]
-#     return get10
+def rename(folder):
+    file_list = glob.glob(folder + '*.jpg')
+    name = 1
+    for file_ in file_list:
+        os.rename(file_,folder + str(name) + '.jpg')
+        name += 1
 
-# folder_all = r'img_folder\all\\'
-# list_file = glob.glob(folder_all + '*.jpg')
-# print(list_file)
-# print('\n')
-# print(f'last 10 files: {list_file[-11:-1]}')
+duplicate = r'img_folder\billet_dup_test\\'
+# rename(duplicate)
 
-# print(get_10(folder_all))
+
+
 
 
 
