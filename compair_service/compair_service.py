@@ -1,4 +1,3 @@
-from cv2 import FileNode_TYPE_MASK
 import imagehash, os, glob, shutil
 from PIL import Image
 
@@ -49,7 +48,7 @@ def pare_10(file_, bf, tg, txt):
         txt.write(f'{file_name1} : {file_name2} ==> {hashdif}\n')
         
         # check hashdiff
-        if hashdif > 20:
+        if hashdif > 15:
             flag = True
         elif file_ == image:
             flag = True

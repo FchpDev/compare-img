@@ -1,0 +1,301 @@
+last_10: ['img_folder\\folder_backup\\1.jpg']
+1.jpg : 1.jpg ==> 0
+-------------------------------------------------------------
+round: 0
+last_10: ['img_folder\\folder_backup\\1.jpg', 'img_folder\\folder_backup\\10.jpg']
+10.jpg : 1.jpg ==> 23
+10.jpg : 10.jpg ==> 0
+-------------------------------------------------------------
+round: 1
+last_10: ['img_folder\\folder_backup\\1.jpg', 'img_folder\\folder_backup\\10.jpg', 'img_folder\\folder_backup\\11.jpg']
+11.jpg : 1.jpg ==> 1
+-------------------------------------------------------------
+round: 2
+last_10: ['img_folder\\folder_backup\\1.jpg', 'img_folder\\folder_backup\\10.jpg', 'img_folder\\folder_backup\\11.jpg', 'img_folder\\folder_backup\\12.jpg']
+12.jpg : 1.jpg ==> 24
+12.jpg : 10.jpg ==> 5
+-------------------------------------------------------------
+round: 3
+last_10: ['img_folder\\folder_backup\\1.jpg', 'img_folder\\folder_backup\\10.jpg', 'img_folder\\folder_backup\\11.jpg', 'img_folder\\folder_backup\\12.jpg', 'img_folder\\folder_backup\\13.jpg']
+13.jpg : 1.jpg ==> 0
+-------------------------------------------------------------
+round: 4
+last_10: ['img_folder\\folder_backup\\1.jpg', 'img_folder\\folder_backup\\10.jpg', 'img_folder\\folder_backup\\11.jpg', 'img_folder\\folder_backup\\12.jpg', 'img_folder\\folder_backup\\13.jpg', 'img_folder\\folder_backup\\14.jpg']
+14.jpg : 1.jpg ==> 25
+14.jpg : 10.jpg ==> 2
+-------------------------------------------------------------
+round: 5
+last_10: ['img_folder\\folder_backup\\1.jpg', 'img_folder\\folder_backup\\10.jpg', 'img_folder\\folder_backup\\11.jpg', 'img_folder\\folder_backup\\12.jpg', 'img_folder\\folder_backup\\13.jpg', 'img_folder\\folder_backup\\14.jpg', 'img_folder\\folder_backup\\15.jpg']
+15.jpg : 1.jpg ==> 17
+15.jpg : 10.jpg ==> 24
+15.jpg : 11.jpg ==> 16
+15.jpg : 12.jpg ==> 25
+15.jpg : 13.jpg ==> 17
+15.jpg : 14.jpg ==> 26
+15.jpg : 15.jpg ==> 0
+-------------------------------------------------------------
+round: 6
+last_10: ['img_folder\\folder_backup\\1.jpg', 'img_folder\\folder_backup\\10.jpg', 'img_folder\\folder_backup\\11.jpg', 'img_folder\\folder_backup\\12.jpg', 'img_folder\\folder_backup\\13.jpg', 'img_folder\\folder_backup\\14.jpg', 'img_folder\\folder_backup\\15.jpg', 'img_folder\\folder_backup\\16.jpg']
+16.jpg : 1.jpg ==> 10
+-------------------------------------------------------------
+round: 7
+last_10: ['img_folder\\folder_backup\\1.jpg', 'img_folder\\folder_backup\\10.jpg', 'img_folder\\folder_backup\\11.jpg', 'img_folder\\folder_backup\\12.jpg', 'img_folder\\folder_backup\\13.jpg', 'img_folder\\folder_backup\\14.jpg', 'img_folder\\folder_backup\\15.jpg', 'img_folder\\folder_backup\\16.jpg', 'img_folder\\folder_backup\\17.jpg']
+17.jpg : 1.jpg ==> 29
+17.jpg : 10.jpg ==> 10
+-------------------------------------------------------------
+round: 8
+last_10: ['img_folder\\folder_backup\\1.jpg', 'img_folder\\folder_backup\\10.jpg', 'img_folder\\folder_backup\\11.jpg', 'img_folder\\folder_backup\\12.jpg', 'img_folder\\folder_backup\\13.jpg', 'img_folder\\folder_backup\\14.jpg', 'img_folder\\folder_backup\\15.jpg', 'img_folder\\folder_backup\\16.jpg', 'img_folder\\folder_backup\\17.jpg', 'img_folder\\folder_backup\\18.jpg']
+18.jpg : 1.jpg ==> 18
+18.jpg : 10.jpg ==> 25
+18.jpg : 11.jpg ==> 17
+18.jpg : 12.jpg ==> 26
+18.jpg : 13.jpg ==> 18
+18.jpg : 14.jpg ==> 27
+18.jpg : 15.jpg ==> 1
+-------------------------------------------------------------
+round: 9
+last_10: ['img_folder\\folder_backup\\1.jpg', 'img_folder\\folder_backup\\10.jpg', 'img_folder\\folder_backup\\11.jpg', 'img_folder\\folder_backup\\12.jpg', 'img_folder\\folder_backup\\13.jpg', 'img_folder\\folder_backup\\14.jpg', 'img_folder\\folder_backup\\15.jpg', 'img_folder\\folder_backup\\16.jpg', 'img_folder\\folder_backup\\17.jpg', 'img_folder\\folder_backup\\18.jpg', 'img_folder\\folder_backup\\19.jpg']
+19.jpg : 1.jpg ==> 9
+-------------------------------------------------------------
+round: 10
+last_10: ['img_folder\\folder_backup\\1.jpg', 'img_folder\\folder_backup\\10.jpg', 'img_folder\\folder_backup\\11.jpg', 'img_folder\\folder_backup\\12.jpg', 'img_folder\\folder_backup\\13.jpg', 'img_folder\\folder_backup\\14.jpg', 'img_folder\\folder_backup\\15.jpg', 'img_folder\\folder_backup\\16.jpg', 'img_folder\\folder_backup\\17.jpg', 'img_folder\\folder_backup\\18.jpg', 'img_folder\\folder_backup\\19.jpg', 'img_folder\\folder_backup\\2.jpg']
+2.jpg : 1.jpg ==> 24
+2.jpg : 10.jpg ==> 3
+-------------------------------------------------------------
+round: 11
+last_10: ['img_folder\\folder_backup\\1.jpg', 'img_folder\\folder_backup\\10.jpg', 'img_folder\\folder_backup\\11.jpg', 'img_folder\\folder_backup\\12.jpg', 'img_folder\\folder_backup\\13.jpg', 'img_folder\\folder_backup\\14.jpg', 'img_folder\\folder_backup\\15.jpg', 'img_folder\\folder_backup\\16.jpg', 'img_folder\\folder_backup\\17.jpg', 'img_folder\\folder_backup\\18.jpg', 'img_folder\\folder_backup\\19.jpg', 'img_folder\\folder_backup\\2.jpg', 'img_folder\\folder_backup\\20.jpg']
+20.jpg : 1.jpg ==> 24
+20.jpg : 10.jpg ==> 13
+-------------------------------------------------------------
+round: 12
+last_10: ['img_folder\\folder_backup\\1.jpg', 'img_folder\\folder_backup\\10.jpg', 'img_folder\\folder_backup\\11.jpg', 'img_folder\\folder_backup\\12.jpg', 'img_folder\\folder_backup\\13.jpg', 'img_folder\\folder_backup\\14.jpg', 'img_folder\\folder_backup\\15.jpg', 'img_folder\\folder_backup\\16.jpg', 'img_folder\\folder_backup\\17.jpg', 'img_folder\\folder_backup\\18.jpg', 'img_folder\\folder_backup\\19.jpg', 'img_folder\\folder_backup\\2.jpg', 'img_folder\\folder_backup\\20.jpg', 'img_folder\\folder_backup\\21.jpg']
+21.jpg : 1.jpg ==> 16
+21.jpg : 10.jpg ==> 23
+21.jpg : 11.jpg ==> 15
+-------------------------------------------------------------
+round: 13
+last_10: ['img_folder\\folder_backup\\1.jpg', 'img_folder\\folder_backup\\10.jpg', 'img_folder\\folder_backup\\11.jpg', 'img_folder\\folder_backup\\12.jpg', 'img_folder\\folder_backup\\13.jpg', 'img_folder\\folder_backup\\14.jpg', 'img_folder\\folder_backup\\15.jpg', 'img_folder\\folder_backup\\16.jpg', 'img_folder\\folder_backup\\17.jpg', 'img_folder\\folder_backup\\18.jpg', 'img_folder\\folder_backup\\19.jpg', 'img_folder\\folder_backup\\2.jpg', 'img_folder\\folder_backup\\20.jpg', 'img_folder\\folder_backup\\21.jpg', 'img_folder\\folder_backup\\22.jpg']
+22.jpg : 1.jpg ==> 8
+-------------------------------------------------------------
+round: 14
+last_10: ['img_folder\\folder_backup\\1.jpg', 'img_folder\\folder_backup\\10.jpg', 'img_folder\\folder_backup\\11.jpg', 'img_folder\\folder_backup\\12.jpg', 'img_folder\\folder_backup\\13.jpg', 'img_folder\\folder_backup\\14.jpg', 'img_folder\\folder_backup\\15.jpg', 'img_folder\\folder_backup\\16.jpg', 'img_folder\\folder_backup\\17.jpg', 'img_folder\\folder_backup\\18.jpg', 'img_folder\\folder_backup\\19.jpg', 'img_folder\\folder_backup\\2.jpg', 'img_folder\\folder_backup\\20.jpg', 'img_folder\\folder_backup\\21.jpg', 'img_folder\\folder_backup\\22.jpg', 'img_folder\\folder_backup\\23.jpg']
+23.jpg : 1.jpg ==> 30
+23.jpg : 10.jpg ==> 31
+23.jpg : 11.jpg ==> 29
+23.jpg : 12.jpg ==> 32
+23.jpg : 13.jpg ==> 30
+23.jpg : 14.jpg ==> 31
+23.jpg : 15.jpg ==> 27
+23.jpg : 16.jpg ==> 26
+23.jpg : 17.jpg ==> 37
+23.jpg : 18.jpg ==> 28
+23.jpg : 19.jpg ==> 25
+23.jpg : 2.jpg ==> 30
+23.jpg : 20.jpg ==> 34
+23.jpg : 21.jpg ==> 28
+23.jpg : 22.jpg ==> 26
+23.jpg : 23.jpg ==> 0
+-------------------------------------------------------------
+round: 15
+last_10: ['img_folder\\folder_backup\\1.jpg', 'img_folder\\folder_backup\\10.jpg', 'img_folder\\folder_backup\\11.jpg', 'img_folder\\folder_backup\\12.jpg', 'img_folder\\folder_backup\\13.jpg', 'img_folder\\folder_backup\\14.jpg', 'img_folder\\folder_backup\\15.jpg', 'img_folder\\folder_backup\\16.jpg', 'img_folder\\folder_backup\\17.jpg', 'img_folder\\folder_backup\\18.jpg', 'img_folder\\folder_backup\\19.jpg', 'img_folder\\folder_backup\\2.jpg', 'img_folder\\folder_backup\\20.jpg', 'img_folder\\folder_backup\\21.jpg', 'img_folder\\folder_backup\\22.jpg', 'img_folder\\folder_backup\\23.jpg', 'img_folder\\folder_backup\\24.jpg']
+24.jpg : 1.jpg ==> 30
+24.jpg : 10.jpg ==> 29
+24.jpg : 11.jpg ==> 31
+24.jpg : 12.jpg ==> 30
+24.jpg : 13.jpg ==> 30
+24.jpg : 14.jpg ==> 31
+24.jpg : 15.jpg ==> 29
+24.jpg : 16.jpg ==> 30
+24.jpg : 17.jpg ==> 33
+24.jpg : 18.jpg ==> 28
+24.jpg : 19.jpg ==> 31
+24.jpg : 2.jpg ==> 32
+24.jpg : 20.jpg ==> 32
+24.jpg : 21.jpg ==> 28
+24.jpg : 22.jpg ==> 28
+24.jpg : 23.jpg ==> 30
+24.jpg : 24.jpg ==> 0
+-------------------------------------------------------------
+round: 16
+last_10: ['img_folder\\folder_backup\\1.jpg', 'img_folder\\folder_backup\\10.jpg', 'img_folder\\folder_backup\\11.jpg', 'img_folder\\folder_backup\\12.jpg', 'img_folder\\folder_backup\\13.jpg', 'img_folder\\folder_backup\\14.jpg', 'img_folder\\folder_backup\\15.jpg', 'img_folder\\folder_backup\\16.jpg', 'img_folder\\folder_backup\\17.jpg', 'img_folder\\folder_backup\\18.jpg', 'img_folder\\folder_backup\\19.jpg', 'img_folder\\folder_backup\\2.jpg', 'img_folder\\folder_backup\\20.jpg', 'img_folder\\folder_backup\\21.jpg', 'img_folder\\folder_backup\\22.jpg', 'img_folder\\folder_backup\\23.jpg', 'img_folder\\folder_backup\\24.jpg', 'img_folder\\folder_backup\\25.jpg']
+25.jpg : 1.jpg ==> 30
+25.jpg : 10.jpg ==> 31
+25.jpg : 11.jpg ==> 29
+25.jpg : 12.jpg ==> 32
+25.jpg : 13.jpg ==> 30
+25.jpg : 14.jpg ==> 29
+25.jpg : 15.jpg ==> 27
+25.jpg : 16.jpg ==> 26
+25.jpg : 17.jpg ==> 35
+25.jpg : 18.jpg ==> 28
+25.jpg : 19.jpg ==> 25
+25.jpg : 2.jpg ==> 28
+25.jpg : 20.jpg ==> 34
+25.jpg : 21.jpg ==> 28
+25.jpg : 22.jpg ==> 26
+25.jpg : 23.jpg ==> 10
+-------------------------------------------------------------
+round: 17
+last_10: ['img_folder\\folder_backup\\1.jpg', 'img_folder\\folder_backup\\10.jpg', 'img_folder\\folder_backup\\11.jpg', 'img_folder\\folder_backup\\12.jpg', 'img_folder\\folder_backup\\13.jpg', 'img_folder\\folder_backup\\14.jpg', 'img_folder\\folder_backup\\15.jpg', 'img_folder\\folder_backup\\16.jpg', 'img_folder\\folder_backup\\17.jpg', 'img_folder\\folder_backup\\18.jpg', 'img_folder\\folder_backup\\19.jpg', 'img_folder\\folder_backup\\2.jpg', 'img_folder\\folder_backup\\20.jpg', 'img_folder\\folder_backup\\21.jpg', 'img_folder\\folder_backup\\22.jpg', 'img_folder\\folder_backup\\23.jpg', 'img_folder\\folder_backup\\24.jpg', 'img_folder\\folder_backup\\25.jpg', 'img_folder\\folder_backup\\26.jpg']
+26.jpg : 1.jpg ==> 29
+26.jpg : 10.jpg ==> 28
+26.jpg : 11.jpg ==> 30
+26.jpg : 12.jpg ==> 29
+26.jpg : 13.jpg ==> 29
+26.jpg : 14.jpg ==> 30
+26.jpg : 15.jpg ==> 26
+26.jpg : 16.jpg ==> 29
+26.jpg : 17.jpg ==> 34
+26.jpg : 18.jpg ==> 25
+26.jpg : 19.jpg ==> 30
+26.jpg : 2.jpg ==> 31
+26.jpg : 20.jpg ==> 33
+26.jpg : 21.jpg ==> 25
+26.jpg : 22.jpg ==> 27
+26.jpg : 23.jpg ==> 31
+26.jpg : 24.jpg ==> 3
+-------------------------------------------------------------
+round: 18
+last_10: ['img_folder\\folder_backup\\1.jpg', 'img_folder\\folder_backup\\10.jpg', 'img_folder\\folder_backup\\11.jpg', 'img_folder\\folder_backup\\12.jpg', 'img_folder\\folder_backup\\13.jpg', 'img_folder\\folder_backup\\14.jpg', 'img_folder\\folder_backup\\15.jpg', 'img_folder\\folder_backup\\16.jpg', 'img_folder\\folder_backup\\17.jpg', 'img_folder\\folder_backup\\18.jpg', 'img_folder\\folder_backup\\19.jpg', 'img_folder\\folder_backup\\2.jpg', 'img_folder\\folder_backup\\20.jpg', 'img_folder\\folder_backup\\21.jpg', 'img_folder\\folder_backup\\22.jpg', 'img_folder\\folder_backup\\23.jpg', 'img_folder\\folder_backup\\24.jpg', 'img_folder\\folder_backup\\25.jpg', 'img_folder\\folder_backup\\26.jpg', 'img_folder\\folder_backup\\27.jpg']
+27.jpg : 1.jpg ==> 29
+27.jpg : 10.jpg ==> 32
+27.jpg : 11.jpg ==> 28
+27.jpg : 12.jpg ==> 33
+27.jpg : 13.jpg ==> 29
+27.jpg : 14.jpg ==> 32
+27.jpg : 15.jpg ==> 30
+27.jpg : 16.jpg ==> 27
+27.jpg : 17.jpg ==> 36
+27.jpg : 18.jpg ==> 31
+27.jpg : 19.jpg ==> 26
+27.jpg : 2.jpg ==> 31
+27.jpg : 20.jpg ==> 33
+27.jpg : 21.jpg ==> 29
+27.jpg : 22.jpg ==> 25
+27.jpg : 23.jpg ==> 11
+-------------------------------------------------------------
+round: 19
+last_10: ['img_folder\\folder_backup\\1.jpg', 'img_folder\\folder_backup\\10.jpg', 'img_folder\\folder_backup\\11.jpg', 'img_folder\\folder_backup\\12.jpg', 'img_folder\\folder_backup\\13.jpg', 'img_folder\\folder_backup\\14.jpg', 'img_folder\\folder_backup\\15.jpg', 'img_folder\\folder_backup\\16.jpg', 'img_folder\\folder_backup\\17.jpg', 'img_folder\\folder_backup\\18.jpg', 'img_folder\\folder_backup\\19.jpg', 'img_folder\\folder_backup\\2.jpg', 'img_folder\\folder_backup\\20.jpg', 'img_folder\\folder_backup\\21.jpg', 'img_folder\\folder_backup\\22.jpg', 'img_folder\\folder_backup\\23.jpg', 'img_folder\\folder_backup\\24.jpg', 'img_folder\\folder_backup\\25.jpg', 'img_folder\\folder_backup\\26.jpg', 'img_folder\\folder_backup\\27.jpg', 'img_folder\\folder_backup\\28.jpg']
+28.jpg : 1.jpg ==> 30
+28.jpg : 10.jpg ==> 31
+28.jpg : 11.jpg ==> 29
+28.jpg : 12.jpg ==> 32
+28.jpg : 13.jpg ==> 30
+28.jpg : 14.jpg ==> 31
+28.jpg : 15.jpg ==> 29
+28.jpg : 16.jpg ==> 26
+28.jpg : 17.jpg ==> 35
+28.jpg : 18.jpg ==> 30
+28.jpg : 19.jpg ==> 25
+28.jpg : 2.jpg ==> 30
+28.jpg : 20.jpg ==> 30
+28.jpg : 21.jpg ==> 30
+28.jpg : 22.jpg ==> 26
+28.jpg : 23.jpg ==> 4
+-------------------------------------------------------------
+round: 20
+last_10: ['img_folder\\folder_backup\\1.jpg', 'img_folder\\folder_backup\\10.jpg', 'img_folder\\folder_backup\\11.jpg', 'img_folder\\folder_backup\\12.jpg', 'img_folder\\folder_backup\\13.jpg', 'img_folder\\folder_backup\\14.jpg', 'img_folder\\folder_backup\\15.jpg', 'img_folder\\folder_backup\\16.jpg', 'img_folder\\folder_backup\\17.jpg', 'img_folder\\folder_backup\\18.jpg', 'img_folder\\folder_backup\\19.jpg', 'img_folder\\folder_backup\\2.jpg', 'img_folder\\folder_backup\\20.jpg', 'img_folder\\folder_backup\\21.jpg', 'img_folder\\folder_backup\\22.jpg', 'img_folder\\folder_backup\\23.jpg', 'img_folder\\folder_backup\\24.jpg', 'img_folder\\folder_backup\\25.jpg', 'img_folder\\folder_backup\\26.jpg', 'img_folder\\folder_backup\\27.jpg', 'img_folder\\folder_backup\\28.jpg', 'img_folder\\folder_backup\\29.jpg']
+29.jpg : 1.jpg ==> 30
+29.jpg : 10.jpg ==> 29
+29.jpg : 11.jpg ==> 31
+29.jpg : 12.jpg ==> 30
+29.jpg : 13.jpg ==> 30
+29.jpg : 14.jpg ==> 31
+29.jpg : 15.jpg ==> 29
+29.jpg : 16.jpg ==> 30
+29.jpg : 17.jpg ==> 33
+29.jpg : 18.jpg ==> 28
+29.jpg : 19.jpg ==> 31
+29.jpg : 2.jpg ==> 32
+29.jpg : 20.jpg ==> 32
+29.jpg : 21.jpg ==> 28
+29.jpg : 22.jpg ==> 28
+29.jpg : 23.jpg ==> 30
+29.jpg : 24.jpg ==> 0
+-------------------------------------------------------------
+round: 21
+last_10: ['img_folder\\folder_backup\\1.jpg', 'img_folder\\folder_backup\\10.jpg', 'img_folder\\folder_backup\\11.jpg', 'img_folder\\folder_backup\\12.jpg', 'img_folder\\folder_backup\\13.jpg', 'img_folder\\folder_backup\\14.jpg', 'img_folder\\folder_backup\\15.jpg', 'img_folder\\folder_backup\\16.jpg', 'img_folder\\folder_backup\\17.jpg', 'img_folder\\folder_backup\\18.jpg', 'img_folder\\folder_backup\\19.jpg', 'img_folder\\folder_backup\\2.jpg', 'img_folder\\folder_backup\\20.jpg', 'img_folder\\folder_backup\\21.jpg', 'img_folder\\folder_backup\\22.jpg', 'img_folder\\folder_backup\\23.jpg', 'img_folder\\folder_backup\\24.jpg', 'img_folder\\folder_backup\\25.jpg', 'img_folder\\folder_backup\\26.jpg', 'img_folder\\folder_backup\\27.jpg', 'img_folder\\folder_backup\\28.jpg', 'img_folder\\folder_backup\\29.jpg', 'img_folder\\folder_backup\\3.jpg']
+3.jpg : 1.jpg ==> 0
+-------------------------------------------------------------
+round: 22
+last_10: ['img_folder\\folder_backup\\1.jpg', 'img_folder\\folder_backup\\10.jpg', 'img_folder\\folder_backup\\11.jpg', 'img_folder\\folder_backup\\12.jpg', 'img_folder\\folder_backup\\13.jpg', 'img_folder\\folder_backup\\14.jpg', 'img_folder\\folder_backup\\15.jpg', 'img_folder\\folder_backup\\16.jpg', 'img_folder\\folder_backup\\17.jpg', 'img_folder\\folder_backup\\18.jpg', 'img_folder\\folder_backup\\19.jpg', 'img_folder\\folder_backup\\2.jpg', 'img_folder\\folder_backup\\20.jpg', 'img_folder\\folder_backup\\21.jpg', 'img_folder\\folder_backup\\22.jpg', 'img_folder\\folder_backup\\23.jpg', 'img_folder\\folder_backup\\24.jpg', 'img_folder\\folder_backup\\25.jpg', 'img_folder\\folder_backup\\26.jpg', 'img_folder\\folder_backup\\27.jpg', 'img_folder\\folder_backup\\28.jpg', 'img_folder\\folder_backup\\29.jpg', 'img_folder\\folder_backup\\3.jpg', 'img_folder\\folder_backup\\30.jpg']
+30.jpg : 1.jpg ==> 30
+30.jpg : 10.jpg ==> 31
+30.jpg : 11.jpg ==> 29
+30.jpg : 12.jpg ==> 32
+30.jpg : 13.jpg ==> 30
+30.jpg : 14.jpg ==> 31
+30.jpg : 15.jpg ==> 29
+30.jpg : 16.jpg ==> 26
+30.jpg : 17.jpg ==> 35
+30.jpg : 18.jpg ==> 30
+30.jpg : 19.jpg ==> 25
+30.jpg : 2.jpg ==> 30
+30.jpg : 20.jpg ==> 30
+30.jpg : 21.jpg ==> 30
+30.jpg : 22.jpg ==> 26
+30.jpg : 23.jpg ==> 4
+-------------------------------------------------------------
+round: 23
+last_10: ['img_folder\\folder_backup\\1.jpg', 'img_folder\\folder_backup\\10.jpg', 'img_folder\\folder_backup\\11.jpg', 'img_folder\\folder_backup\\12.jpg', 'img_folder\\folder_backup\\13.jpg', 'img_folder\\folder_backup\\14.jpg', 'img_folder\\folder_backup\\15.jpg', 'img_folder\\folder_backup\\16.jpg', 'img_folder\\folder_backup\\17.jpg', 'img_folder\\folder_backup\\18.jpg', 'img_folder\\folder_backup\\19.jpg', 'img_folder\\folder_backup\\2.jpg', 'img_folder\\folder_backup\\20.jpg', 'img_folder\\folder_backup\\21.jpg', 'img_folder\\folder_backup\\22.jpg', 'img_folder\\folder_backup\\23.jpg', 'img_folder\\folder_backup\\24.jpg', 'img_folder\\folder_backup\\25.jpg', 'img_folder\\folder_backup\\26.jpg', 'img_folder\\folder_backup\\27.jpg', 'img_folder\\folder_backup\\28.jpg', 'img_folder\\folder_backup\\29.jpg', 'img_folder\\folder_backup\\3.jpg', 'img_folder\\folder_backup\\30.jpg', 'img_folder\\folder_backup\\31.jpg']
+31.jpg : 1.jpg ==> 31
+31.jpg : 10.jpg ==> 30
+31.jpg : 11.jpg ==> 32
+31.jpg : 12.jpg ==> 31
+31.jpg : 13.jpg ==> 31
+31.jpg : 14.jpg ==> 32
+31.jpg : 15.jpg ==> 28
+31.jpg : 16.jpg ==> 31
+31.jpg : 17.jpg ==> 34
+31.jpg : 18.jpg ==> 27
+31.jpg : 19.jpg ==> 32
+31.jpg : 2.jpg ==> 33
+31.jpg : 20.jpg ==> 33
+31.jpg : 21.jpg ==> 27
+31.jpg : 22.jpg ==> 29
+31.jpg : 23.jpg ==> 31
+31.jpg : 24.jpg ==> 1
+-------------------------------------------------------------
+round: 24
+last_10: ['img_folder\\folder_backup\\1.jpg', 'img_folder\\folder_backup\\10.jpg', 'img_folder\\folder_backup\\11.jpg', 'img_folder\\folder_backup\\12.jpg', 'img_folder\\folder_backup\\13.jpg', 'img_folder\\folder_backup\\14.jpg', 'img_folder\\folder_backup\\15.jpg', 'img_folder\\folder_backup\\16.jpg', 'img_folder\\folder_backup\\17.jpg', 'img_folder\\folder_backup\\18.jpg', 'img_folder\\folder_backup\\19.jpg', 'img_folder\\folder_backup\\2.jpg', 'img_folder\\folder_backup\\20.jpg', 'img_folder\\folder_backup\\21.jpg', 'img_folder\\folder_backup\\22.jpg', 'img_folder\\folder_backup\\23.jpg', 'img_folder\\folder_backup\\24.jpg', 'img_folder\\folder_backup\\25.jpg', 'img_folder\\folder_backup\\26.jpg', 'img_folder\\folder_backup\\27.jpg', 'img_folder\\folder_backup\\28.jpg', 'img_folder\\folder_backup\\29.jpg', 'img_folder\\folder_backup\\3.jpg', 'img_folder\\folder_backup\\30.jpg', 'img_folder\\folder_backup\\31.jpg', 'img_folder\\folder_backup\\32.jpg']
+32.jpg : 1.jpg ==> 27
+32.jpg : 10.jpg ==> 32
+32.jpg : 11.jpg ==> 26
+32.jpg : 12.jpg ==> 33
+32.jpg : 13.jpg ==> 27
+32.jpg : 14.jpg ==> 32
+32.jpg : 15.jpg ==> 26
+32.jpg : 16.jpg ==> 25
+32.jpg : 17.jpg ==> 38
+32.jpg : 18.jpg ==> 27
+32.jpg : 19.jpg ==> 24
+32.jpg : 2.jpg ==> 31
+32.jpg : 20.jpg ==> 33
+32.jpg : 21.jpg ==> 27
+32.jpg : 22.jpg ==> 23
+32.jpg : 23.jpg ==> 5
+-------------------------------------------------------------
+round: 25
+last_10: ['img_folder\\folder_backup\\1.jpg', 'img_folder\\folder_backup\\10.jpg', 'img_folder\\folder_backup\\11.jpg', 'img_folder\\folder_backup\\12.jpg', 'img_folder\\folder_backup\\13.jpg', 'img_folder\\folder_backup\\14.jpg', 'img_folder\\folder_backup\\15.jpg', 'img_folder\\folder_backup\\16.jpg', 'img_folder\\folder_backup\\17.jpg', 'img_folder\\folder_backup\\18.jpg', 'img_folder\\folder_backup\\19.jpg', 'img_folder\\folder_backup\\2.jpg', 'img_folder\\folder_backup\\20.jpg', 'img_folder\\folder_backup\\21.jpg', 'img_folder\\folder_backup\\22.jpg', 'img_folder\\folder_backup\\23.jpg', 'img_folder\\folder_backup\\24.jpg', 'img_folder\\folder_backup\\25.jpg', 'img_folder\\folder_backup\\26.jpg', 'img_folder\\folder_backup\\27.jpg', 'img_folder\\folder_backup\\28.jpg', 'img_folder\\folder_backup\\29.jpg', 'img_folder\\folder_backup\\3.jpg', 'img_folder\\folder_backup\\30.jpg', 'img_folder\\folder_backup\\31.jpg', 'img_folder\\folder_backup\\32.jpg', 'img_folder\\folder_backup\\4.jpg']
+4.jpg : 1.jpg ==> 24
+4.jpg : 10.jpg ==> 5
+-------------------------------------------------------------
+round: 26
+last_10: ['img_folder\\folder_backup\\1.jpg', 'img_folder\\folder_backup\\10.jpg', 'img_folder\\folder_backup\\11.jpg', 'img_folder\\folder_backup\\12.jpg', 'img_folder\\folder_backup\\13.jpg', 'img_folder\\folder_backup\\14.jpg', 'img_folder\\folder_backup\\15.jpg', 'img_folder\\folder_backup\\16.jpg', 'img_folder\\folder_backup\\17.jpg', 'img_folder\\folder_backup\\18.jpg', 'img_folder\\folder_backup\\19.jpg', 'img_folder\\folder_backup\\2.jpg', 'img_folder\\folder_backup\\20.jpg', 'img_folder\\folder_backup\\21.jpg', 'img_folder\\folder_backup\\22.jpg', 'img_folder\\folder_backup\\23.jpg', 'img_folder\\folder_backup\\24.jpg', 'img_folder\\folder_backup\\25.jpg', 'img_folder\\folder_backup\\26.jpg', 'img_folder\\folder_backup\\27.jpg', 'img_folder\\folder_backup\\28.jpg', 'img_folder\\folder_backup\\29.jpg', 'img_folder\\folder_backup\\3.jpg', 'img_folder\\folder_backup\\30.jpg', 'img_folder\\folder_backup\\31.jpg', 'img_folder\\folder_backup\\32.jpg', 'img_folder\\folder_backup\\4.jpg', 'img_folder\\folder_backup\\5.jpg']
+5.jpg : 1.jpg ==> 0
+-------------------------------------------------------------
+round: 27
+last_10: ['img_folder\\folder_backup\\1.jpg', 'img_folder\\folder_backup\\10.jpg', 'img_folder\\folder_backup\\11.jpg', 'img_folder\\folder_backup\\12.jpg', 'img_folder\\folder_backup\\13.jpg', 'img_folder\\folder_backup\\14.jpg', 'img_folder\\folder_backup\\15.jpg', 'img_folder\\folder_backup\\16.jpg', 'img_folder\\folder_backup\\17.jpg', 'img_folder\\folder_backup\\18.jpg', 'img_folder\\folder_backup\\19.jpg', 'img_folder\\folder_backup\\2.jpg', 'img_folder\\folder_backup\\20.jpg', 'img_folder\\folder_backup\\21.jpg', 'img_folder\\folder_backup\\22.jpg', 'img_folder\\folder_backup\\23.jpg', 'img_folder\\folder_backup\\24.jpg', 'img_folder\\folder_backup\\25.jpg', 'img_folder\\folder_backup\\26.jpg', 'img_folder\\folder_backup\\27.jpg', 'img_folder\\folder_backup\\28.jpg', 'img_folder\\folder_backup\\29.jpg', 'img_folder\\folder_backup\\3.jpg', 'img_folder\\folder_backup\\30.jpg', 'img_folder\\folder_backup\\31.jpg', 'img_folder\\folder_backup\\32.jpg', 'img_folder\\folder_backup\\4.jpg', 'img_folder\\folder_backup\\5.jpg', 'img_folder\\folder_backup\\6.jpg']
+6.jpg : 1.jpg ==> 25
+6.jpg : 10.jpg ==> 4
+-------------------------------------------------------------
+round: 28
+last_10: ['img_folder\\folder_backup\\1.jpg', 'img_folder\\folder_backup\\10.jpg', 'img_folder\\folder_backup\\11.jpg', 'img_folder\\folder_backup\\12.jpg', 'img_folder\\folder_backup\\13.jpg', 'img_folder\\folder_backup\\14.jpg', 'img_folder\\folder_backup\\15.jpg', 'img_folder\\folder_backup\\16.jpg', 'img_folder\\folder_backup\\17.jpg', 'img_folder\\folder_backup\\18.jpg', 'img_folder\\folder_backup\\19.jpg', 'img_folder\\folder_backup\\2.jpg', 'img_folder\\folder_backup\\20.jpg', 'img_folder\\folder_backup\\21.jpg', 'img_folder\\folder_backup\\22.jpg', 'img_folder\\folder_backup\\23.jpg', 'img_folder\\folder_backup\\24.jpg', 'img_folder\\folder_backup\\25.jpg', 'img_folder\\folder_backup\\26.jpg', 'img_folder\\folder_backup\\27.jpg', 'img_folder\\folder_backup\\28.jpg', 'img_folder\\folder_backup\\29.jpg', 'img_folder\\folder_backup\\3.jpg', 'img_folder\\folder_backup\\30.jpg', 'img_folder\\folder_backup\\31.jpg', 'img_folder\\folder_backup\\32.jpg', 'img_folder\\folder_backup\\4.jpg', 'img_folder\\folder_backup\\5.jpg', 'img_folder\\folder_backup\\6.jpg', 'img_folder\\folder_backup\\7.jpg']
+7.jpg : 1.jpg ==> 0
+-------------------------------------------------------------
+round: 29
+last_10: ['img_folder\\folder_backup\\1.jpg', 'img_folder\\folder_backup\\10.jpg', 'img_folder\\folder_backup\\11.jpg', 'img_folder\\folder_backup\\12.jpg', 'img_folder\\folder_backup\\13.jpg', 'img_folder\\folder_backup\\14.jpg', 'img_folder\\folder_backup\\15.jpg', 'img_folder\\folder_backup\\16.jpg', 'img_folder\\folder_backup\\17.jpg', 'img_folder\\folder_backup\\18.jpg', 'img_folder\\folder_backup\\19.jpg', 'img_folder\\folder_backup\\2.jpg', 'img_folder\\folder_backup\\20.jpg', 'img_folder\\folder_backup\\21.jpg', 'img_folder\\folder_backup\\22.jpg', 'img_folder\\folder_backup\\23.jpg', 'img_folder\\folder_backup\\24.jpg', 'img_folder\\folder_backup\\25.jpg', 'img_folder\\folder_backup\\26.jpg', 'img_folder\\folder_backup\\27.jpg', 'img_folder\\folder_backup\\28.jpg', 'img_folder\\folder_backup\\29.jpg', 'img_folder\\folder_backup\\3.jpg', 'img_folder\\folder_backup\\30.jpg', 'img_folder\\folder_backup\\31.jpg', 'img_folder\\folder_backup\\32.jpg', 'img_folder\\folder_backup\\4.jpg', 'img_folder\\folder_backup\\5.jpg', 'img_folder\\folder_backup\\6.jpg', 'img_folder\\folder_backup\\7.jpg', 'img_folder\\folder_backup\\8.jpg']
+8.jpg : 1.jpg ==> 23
+8.jpg : 10.jpg ==> 8
+-------------------------------------------------------------
+round: 30

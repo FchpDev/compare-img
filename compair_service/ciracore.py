@@ -19,29 +19,35 @@ def lasted_file(folder):
 def pare_10(file_, bf, tg):
     flag = False
     img1 = Image.open(file_)
-    #print(f'img: {img1}')
+    print(f'img: {img1}')
     hash1 = imagehash.dhash(img1, hash_size = 8)
     print(f'hash: {hash1}')
 
     # 10 lastest file in directory
-    #last_10 = stack(bf)   
-    last_10 = glob.glob(bf + '*.jpg')[-11:-1]
-    #last_10 = glob.glob(bf + '*.jpg')
+    last_10 = glob.glob(bf + '*.jpg')
     print(f'last_10: {last_10}')
+    # txt.write(f'last_10: {last_10}\n')
     for image in last_10:
-        #print(f'image: {image}')
+        print(f'image: {image}')
         # load image 2 and hash
         img = Image.open(image)
-        #print(f'img2: {img}')
+        print(f'img2: {img}')
         hash2 = imagehash.dhash(img, hash_size = 8)
         print(f'hash2: {hash2}')
-
+        
         # hashdiff
         hashdif = hash1 - hash2
-        print(f'hashdiff {hashdif}')
+        
+        # file_name1 = file_.rsplit('\\', 1)[-1]
+        # file_name2 = image.rsplit('\\', 1)[-1]
+        # txt.write(f'{file_name1} : {file_name2} ==> {hashdif}\n')
+        
         # check hashdiff
-        if hashdif > 10:
+        if hashdif > 15:
             flag = True
+        elif file_ == image:
+            flag = True
+            break
         elif file_ != image:
             flag = False
             break
@@ -51,11 +57,8 @@ def pare_10(file_, bf, tg):
         print('no')
         shutil.copy(file_, tg)
     elif flag == False:
-        #file_name = file_.rsplit('\\', 1)[-1]
-        print(len(last_10))
-        if len(last_10) != 0:
-            os.remove(file_)
         print('Dupplicate')
+    # txt.write('-------------------------------------------------------------' + '\n')
 
 # define folder
 folder_backup = r'C:\darknet_billet_ocr\CiraCore\billet\Duplicate\folder_backup\\'
