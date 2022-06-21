@@ -133,19 +133,19 @@ def autopair2txt(folder):   # phash
     jpg_list = glob.glob(folder + '*.jpg')
     for image in jpg_list:
         img = Image.open(image)
-        hash1 = imagehash.phash(img, hash_size = 8)
+        hash1 = imagehash.dhash(img, hash_size = 8)
         file.write('---------------------------------------------------' + '\n')
         file1.write('---------------------------------------------------' + '\n')
         for image2 in jpg_list:
             img2 = Image.open(image2)
-            hash2 = imagehash.phash(img2, hash_size = 8)
+            hash2 = imagehash.dhash(img2, hash_size = 8)
             hashdiff = hash1 - hash2
             file.write(image.rsplit('\\', 1)[-1] + ' : ' + image2.rsplit('\\', 1)[-1] + ' = ' + str(hashdiff) + '\n')
             if hashdiff < 10:
                 file1.write(image.rsplit('\\', 1)[-1] + ' : ' + image2.rsplit('\\', 1)[-1] + ' = ' + str(hashdiff) + '\n')
 
 def d_autopair2txt(folder):
-    diff = 18
+    diff = 13
     up = 0
     down = 0
     file = open('result_dpair.txt', 'w')
@@ -192,7 +192,7 @@ def cp_from_temp(file_, og, target):
         # hash diff
         hashdiff = hash1 - hash2
         # check Duplication image
-        if hashdiff < 18:
+        if hashdiff < 13:
             temp = []
             temp.append(image2)
         else:
@@ -226,7 +226,7 @@ def delete(folder):
 # if confirm == 'yes' or 'Yes' or 'YES':
 #     delete(ocr)
 
-folder = r'img_folder\all\\'
+folder = r'img_folder\cold\\'
 d_autopair2txt(folder)
 
 

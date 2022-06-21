@@ -48,7 +48,7 @@ def pare_10(file_, bf, tg, txt):
         txt.write(f'{file_name1} : {file_name2} ==> {hashdif}\n')
         
         # check hashdiff
-        if hashdif > 15:
+        if hashdif > 13:
             flag = True
         elif file_ == image:
             flag = True
@@ -73,7 +73,8 @@ def rename(folder):
         name += 1
 
 duplicate = r'img_folder\billet_dup_test\\'
-# rename(duplicate)
+cold = r'img_folder\cold\\'
+rename(cold)
 
 
 

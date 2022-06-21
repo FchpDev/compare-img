@@ -62,3 +62,6 @@
 *.3dm
 *.max
 
+# video
+*.mp4
+

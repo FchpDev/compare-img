@@ -26,23 +26,23 @@ check = ''
 jpg_list = glob.glob(duplicate + '*.jpg')
 txt = open('pare.txt', 'w')
 r = 0
-for j in jpg_list:
-    try:
-        current = cm.lasted_file(folder_backup)
-    except Exception as e:
-        print(f'Exception: {e}')
-        shutil.copy(j, folder_backup)
-        continue
-    if check == current:
-        continue
-    elif check != current:
-        print(f'current: {current}')
-        cm.pare_10(current, folder_backup, target, txt)
-        txt.write(f'round: {r}\n')
-        check = current
-        r += 1
-    print('-------------------------------------------\n')
-    shutil.copy(j, folder_backup)
+# for j in jpg_list:
+#     try:
+#         current = cm.lasted_file(folder_backup)
+#     except Exception as e:
+#         print(f'Exception: {e}')
+#         shutil.copy(j, folder_backup)
+#         continue
+#     if check == current:
+#         continue
+#     elif check != current:
+#         print(f'current: {current}')
+#         cm.pare_10(current, folder_backup, target, txt)
+#         txt.write(f'round: {r}\n')
+#         check = current
+#         r += 1
+#     print('-------------------------------------------\n')
+#     shutil.copy(j, folder_backup)
 
 # cm.delete(target)
 # cm.delete(folder_backup)
