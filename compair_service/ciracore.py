@@ -33,16 +33,10 @@ def pare_10(file_, bf, tg):
     hash1 = imagehash.dhash(img1, hash_size = 8)
     print(f'hash: {hash1}')
 
-    # 10 lastest file in directory  
+    # 10 lastest file in directory
     last_10 = glob.glob(bf + '*.jpg')[-11:-1]
-    last_10_size = len(last_10)
-    #last_10 = glob.glob(bf + '*.jpg')
-    print(f'last_10(size): {last_10_size}')
     print(f'last_10: {last_10}')
     for image in last_10:
-        if len(last_10) == 1:
-            shutil.copy(last_10[0], tg)
-            break
         #print(f'image: {image}')
         # load image 2 and hash
         img = Image.open(image)
@@ -54,7 +48,7 @@ def pare_10(file_, bf, tg):
         hashdif = hash1 - hash2
         print(f'hashdiff {hashdif}')
         # check hashdiff
-        if hashdif > 10:
+        if hashdif > 9:
             flag = True
         elif file_ != image:
             flag = False
@@ -84,6 +78,15 @@ current = ''
 
 try:
     current = lasted_file(folder_backup)
+    last_10 = glob.glob(folder_backup + '*.jpg')[-11:-1]
+    last_10_size = len(last_10)
+    print(f'last_10(size): {last_10_size}')
+    #print(f'last_10: {last_10}')
+    if len(last_10) == 1:
+        size_tg = len(glob.glob(target + '*.jpg'))
+        if size_tg == 0:
+            shutil.copy(current, target)
+            pass
     if current:
         if check == current:
             print('folder backup is\'n update')
