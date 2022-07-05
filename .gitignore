@@ -67,3 +67,6 @@
 
 # text file
 *.txt
+
+# excel
+*.xlsx
