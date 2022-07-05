@@ -1,2 +1,6 @@
-import cv2 as cv
+for i in range(1, 3):
+    print(f'i: {i}')
+    # pass
+    break
+
 
