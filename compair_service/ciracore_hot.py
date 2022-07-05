@@ -8,7 +8,7 @@ import imagehash, shutil, glob, os, cfg
 
 #################################
 
-factory_number = 3
+factory_number = payload['factory_number']
 
 def collect_path(path):
     i = 0
@@ -27,23 +27,9 @@ def lasted_file(folder):
     lasted = max(file_, key=os.path.getctime)
     return lasted
 
-# delete
-def delete(folder):
-    count = 0
-    file_list = glob.glob(folder + '*.*')
-    for file_ in file_list:
-        if os.path.exists(file_):
-            if file_.rsplit('\\', 1)[-1] == r'mockup.jpg':
-                continue
-            os.remove(file_)
-            print(file_)
-            count = count + 1
-    print(f'total delete: {count}')
-
-
 # pair
 def pare_10(file_, bf, tg):
-    fix_hashdif = 10
+    fix_hashdif = 3
     flag = False
     img1 = Image.open(file_)
     #print(f'img: {img1}')
@@ -87,61 +73,43 @@ def pare_10(file_, bf, tg):
             # os.remove(file_)
         print('Dupplicate')
 
-# run main
-# temp = payload['last_image']
-# check = collect_path(temp)
-current = ''
-check = ''
-
-
-# while True:
-#     try:
-#         current = lasted_file(folder_backup)
-#         if current:
-#             if check == current:
-#                 print('folder backup is\'n update')
-#                 pass
-#             elif check != current and current != '':
-#                 print(f'current: {current}')
-#                 pare_10(current, folder_backup, target)
-#                 # payload['last_image'] = current.replace('\\', '\\\\)
-#                 check = current
-#             print(f'---------------------------------\n')
-#         if not current:
-#             print('Program doesn\'t have current file')
-#             pass
-#     except Exception as e:
-#         print(f'Exception {e}')
-#         pass
-
-
 # define folder
-folder_backup = cfg.list_of_backup_image_path[factory_number]
-target = cfg.list_of_image_path[factory_number]
-cold = r'D:\Project\CodingHub\tata\compare-img\img_folder\cold\\'
-hot = r'D:\Project\CodingHub\tata\compare-img\img_folder\hot\\'
+folder_backup = cfg.list_of_backup_hot_image_path[factory_number]
+print(f'folder_backup: {folder_backup}')
+target = cfg.list_of_image_hot_billet_path[factory_number]
+print(f'target: {target}')
 
-jpg_list = glob.glob(cold + '*.jpg')
-for j in jpg_list:
-    try:
-        current = lasted_file(folder_backup)
-        if current:
-            if check == current:
-                print('folder backup isn\'t update')
-                pass
-            elif check != current and current != '':
-                print(f'current: {current}')
-                pare_10(current, folder_backup, target)
-                # payload['last_image'] = current.replace('\\', '\\\\)
-                check = current
+# run main
+temp = payload['last_image_hot']
+check = collect_path(temp)
+print(f'check: {check}')
+# check = ''
+current = ''
+
+try:
+    current = lasted_file(folder_backup)
+    last_10 = glob.glob(folder_backup + '*.jpg')[-11:-1]
+    last_10_size = len(last_10)
+    print(f'last_10(size): {last_10_size}')
+    #print(f'last_10: {last_10}')
+    if len(last_10) == 1:
+        size_tg = len(glob.glob(target + '*.jpg'))
+        if size_tg == 0:
+            shutil.copy(current, target)
+            pass
+    if current:
+        if check == current:
+            print('folder backup is\'n update')
+            pass
+        elif check != current and current != '':
+            print(f'current: {current}')
+            pare_10(current, folder_backup, target)
+            payload['last_image_hot'] = current.replace('\\', '\\\\')
+            #check = current
             print(f'---------------------------------\n')
-        if not current:
+    elif not current:
             print('Program doesn\'t have current file')
             pass
-    except Exception as e:
-        print(f'Exception {e}')
-        pass
-    shutil.copy(j, folder_backup)
-
-# delete(folder_backup)
-# delete(target)
+except Exception as e:
+    print(f'Exception {e}')
+    pass

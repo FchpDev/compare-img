@@ -65,3 +65,5 @@
 # video
 *.mp4
 
+# text file
+*.txt

@@ -1,3 +1,4 @@
+from multiprocessing.reduction import duplicate
 import imagehash
 from PIL import Image
 import glob, os, shutil
@@ -145,12 +146,17 @@ def autopair2txt(folder):   # phash
                 file1.write(image.rsplit('\\', 1)[-1] + ' : ' + image2.rsplit('\\', 1)[-1] + ' = ' + str(hashdiff) + '\n')
 
 def d_autopair2txt(folder):
-    diff = 13
+    diff = 10
     up = 0
     down = 0
-    file = open('result_dpair.txt', 'w')
-    file1 = open(f'result_dpair_under_{diff}.txt', 'w')
+    # print(folder)
+    folder_name = folder.split('\\')[1]
+    # print(f'folder_name: {folder_name}')
+    file = open(f'result_dpair_{folder_name}.txt', 'w')
+    file1 = open(f'result_dpair_{folder_name}_under_{diff}.txt', 'w')
     jpg_list = glob.glob(folder + '*.jpg')
+    file.write(f'file_name: {folder}\n')
+    file1.write(f'file_name: {folder}\n')
     for image in jpg_list:
         img = Image.open(image)
         hash1 = imagehash.dhash(img, hash_size = 8)
@@ -160,56 +166,17 @@ def d_autopair2txt(folder):
             img2 = Image.open(image2)
             hash2 = imagehash.dhash(img2, hash_size = 8)
             hashdiff = hash1 - hash2
-            if hashdiff >= diff:
+            if hashdiff > diff:
                 file.write(image.rsplit('\\', 1)[-1] + ' : ' + image2.rsplit('\\', 1)[-1] + ' = ' + str(hashdiff) + '\n')
                 up = up + 1
-            if hashdiff < diff:
+            if hashdiff <= diff:
                 file1.write(image.rsplit('\\', 1)[-1] + ' : ' + image2.rsplit('\\', 1)[-1] + ' = ' + str(hashdiff) + '\n')
+                if hashdiff != 0:
+                    file.write(image.rsplit('\\', 1)[-1] + ' : ' + image2.rsplit('\\', 1)[-1] + ' = ' + str(hashdiff) + ' ###' + '\n')
+                    down = down + 1 
+                    pass
                 file.write(image.rsplit('\\', 1)[-1] + ' : ' + image2.rsplit('\\', 1)[-1] + ' = ' + str(hashdiff) + ' #' + '\n')
-                down = down + 1
     file.write('----------------------------------------------------\n' + f'Up: {up}\n' + f'Down: {down}')
-
-def cp_from_temp(file_, og, target):
-    # read img
-    img = Image.open(file_)
-    #print(img)
-    # open txt file
-    file = open('result_temp.txt', 'w')
-    # hash img
-    hash1 = imagehash.dhash(img, hash_size = 8)
-    print('hash: ', hash)
-    # list jpg file in folder
-    jpg_list = glob.glob(og + '*.jpg')
-    # count in global variable
-    global count
-    global temp
-    # loop cheack duplicate img
-    for image2 in jpg_list:
-        # read img2
-        img2 = Image.open(image2)
-        # hash image2
-        hash2 = imagehash.dhash(img2, hash_size=8)
-        # hash diff
-        hashdiff = hash1 - hash2
-        # check Duplication image
-        if hashdiff < 13:
-            temp = []
-            temp.append(image2)
-        else:
-                shutil.copy(image2, target)
-                #shutil.copy(file_, target)
-                print('copy: ' + image2.rsplit('\\', 1)[-1] + ' to ' + target)
-                count = count + 1
-    print('total copy: ', count)
-    print('temp: ', temp)
-
-def loop_cp_temp(folder, target):
-    jpg_list = glob.glob(folder + '*.jpg')
-    for j in jpg_list:
-        # if os.path.exists(j):
-        file_ = j
-        cp_from_temp(file_, folder, target)
-    print('len(target): ', len(target))
 
 # delete all in folder
 def delete(folder):
@@ -226,8 +193,14 @@ def delete(folder):
 # if confirm == 'yes' or 'Yes' or 'YES':
 #     delete(ocr)
 
-folder = r'img_folder\cold\\'
-d_autopair2txt(folder)
+hot_factory1 = r'img_folder\hot_billet_factory1\\'
+hot = r'img_folder\hot\\'
+duplicate = r'img_folder\billet_dup_test\\'
+cold = r'img_folder\cold\\'
+backup = r'img_folder\backup\\'
+
+# d_autopair2txt(hot)
+d_autopair2txt(backup)
 
 
 
@@ -381,4 +354,46 @@ def auto_pair(folder):
                 j = j + 1
         i = i + 1
     print('Delete: ', count)
+
+def cp_from_temp(file_, og, target):
+    # read img
+    img = Image.open(file_)
+    #print(img)
+    # open txt file
+    file = open('result_temp.txt', 'w')
+    # hash img
+    hash1 = imagehash.dhash(img, hash_size = 8)
+    print('hash: ', hash)
+    # list jpg file in folder
+    jpg_list = glob.glob(og + '*.jpg')
+    # count in global variable
+    global count
+    global temp
+    # loop cheack duplicate img
+    for image2 in jpg_list:
+        # read img2
+        img2 = Image.open(image2)
+        # hash image2
+        hash2 = imagehash.dhash(img2, hash_size=8)
+        # hash diff
+        hashdiff = hash1 - hash2
+        # check Duplication image
+        if hashdiff < 13:
+            temp = []
+            temp.append(image2)
+        else:
+                shutil.copy(image2, target)
+                #shutil.copy(file_, target)
+                print('copy: ' + image2.rsplit('\\', 1)[-1] + ' to ' + target)
+                count = count + 1
+    print('total copy: ', count)
+    print('temp: ', temp)
+
+def loop_cp_temp(folder, target):
+    jpg_list = glob.glob(folder + '*.jpg')
+    for j in jpg_list:
+        # if os.path.exists(j):
+        file_ = j
+        cp_from_temp(file_, folder, target)
+    print('len(target): ', len(target))
 '''

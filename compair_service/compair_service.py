@@ -74,7 +74,9 @@ def rename(folder):
 
 duplicate = r'img_folder\billet_dup_test\\'
 cold = r'img_folder\cold\\'
-rename(cold)
+hot = r'img_folder\hot\\'
+hot_factory1 = r'img_folder\hot_billet_factory1\\'
+# rename(hot_factory1)
 
 
 

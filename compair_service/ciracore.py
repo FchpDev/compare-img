@@ -8,6 +8,8 @@ import imagehash, shutil, glob, os, cfg
 
 #################################
 
+factory_number = payload['factory_number']
+
 def collect_path(path):
     i = 0
     ret = ''
@@ -48,7 +50,7 @@ def pare_10(file_, bf, tg):
         hashdif = hash1 - hash2
         print(f'hashdiff {hashdif}')
         # check hashdiff
-        if hashdif > 9:
+        if hashdif >= 10:
             flag = True
         elif file_ != image:
             flag = False
@@ -66,8 +68,11 @@ def pare_10(file_, bf, tg):
         print('Dupplicate')
 
 # define folder
-folder_backup = r'C:\darknet_billet_ocr\CiraCore\billet\test_dup\Test_Result\crop\cold\\'
-target = r'C:\darknet_billet_ocr\CiraCore\billet\test_dup\Test_Result\target\\'
+folder_backup = cfg.list_of_backup_image_path[factory_number]
+target = cfg.list_of_image_path[factory_number]
+
+print(f'folder_backup: {folder_backup}')
+print(f'target: {target}')
 
 # run main
 temp = payload['last_image']
