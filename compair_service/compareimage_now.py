@@ -45,17 +45,17 @@ def sel_one(file_, folder):
     img1 = Image.open(file_)
     file = open('result.txt', 'w')
     print(f"origin: {file_} #")
-    # print('img1: ', img1)
+    print('img1: ', img1)
     hash1 = imagehash.phash(img1, hash_size = 8)
-    # print('hash1: ', hash1)
+    print('hash1: ', hash1)
     global count
     for img in glob.glob(folder + '*.jpg'):
         img2 = Image.open(img)
         print(f"compare with: {img} *")
 
-        # print('img2: ', img2)
+        print('img2: ', img2)
         hash2 = imagehash.phash(img2, hash_size = 8)
-        # print('hash2: ', hash2)
+        print('hash2: ', hash2)
         hashdiff = hash1 - hash2
 
         if file_ == img:
@@ -146,37 +146,44 @@ def autopair2txt(folder):   # phash
                 file1.write(image.rsplit('\\', 1)[-1] + ' : ' + image2.rsplit('\\', 1)[-1] + ' = ' + str(hashdiff) + '\n')
 
 def d_autopair2txt(folder):
-    diff = 10
+    diff = 4
     up = 0
     down = 0
     # print(folder)
-    folder_name = folder.split('\\')[1]
+    # folder_name = folder.split('\\', 1)[1]
+    # folder_name = folder_name.replace('test\\', '')
+    # folder_name = folder_name.replace('\\', '')
     # print(f'folder_name: {folder_name}')
-    file = open(f'result_dpair_{folder_name}.txt', 'w')
-    file1 = open(f'result_dpair_{folder_name}_under_{diff}.txt', 'w')
+    # file = open(f'result_dpair_{folder_name}.txt', 'w')
+    # file1 = open(f'result_dpair_{folder_name}_under_{diff}.txt', 'w')
+    file = open(f'result_dpare.txt', 'a')
+    file1 = open(f'result_dpare_under{diff}.txt','a')
     jpg_list = glob.glob(folder + '*.jpg')
     file.write(f'file_name: {folder}\n')
     file1.write(f'file_name: {folder}\n')
     for image in jpg_list:
         img = Image.open(image)
         hash1 = imagehash.dhash(img, hash_size = 8)
+        # print(f'hash1: {hash1}')
         file.write('---------------------------------------------------' + '\n')
         file1.write('---------------------------------------------------' + '\n')
         for image2 in jpg_list:
             img2 = Image.open(image2)
             hash2 = imagehash.dhash(img2, hash_size = 8)
+            # print(f'hash2: {hash2}')
             hashdiff = hash1 - hash2
             if hashdiff > diff:
-                file.write(image.rsplit('\\', 1)[-1] + ' : ' + image2.rsplit('\\', 1)[-1] + ' = ' + str(hashdiff) + '\n')
+                file.writelines(image.rsplit('\\', 1)[-1] + ' : ' + image2.rsplit('\\', 1)[-1] + ' = ' + str(hashdiff) + '\n')
                 up = up + 1
             if hashdiff <= diff:
-                file1.write(image.rsplit('\\', 1)[-1] + ' : ' + image2.rsplit('\\', 1)[-1] + ' = ' + str(hashdiff) + '\n')
+                file1.writelines(image.rsplit('\\', 1)[-1] + ' : ' + image2.rsplit('\\', 1)[-1] + ' = ' + str(hashdiff) + '\n')
                 if hashdiff != 0:
-                    file.write(image.rsplit('\\', 1)[-1] + ' : ' + image2.rsplit('\\', 1)[-1] + ' = ' + str(hashdiff) + ' ###' + '\n')
+                    file.writelines(image.rsplit('\\', 1)[-1] + ' : ' + image2.rsplit('\\', 1)[-1] + ' = ' + str(hashdiff) + ' ###' + '\n')
                     down = down + 1 
-                    pass
-                file.write(image.rsplit('\\', 1)[-1] + ' : ' + image2.rsplit('\\', 1)[-1] + ' = ' + str(hashdiff) + ' #' + '\n')
-    file.write('----------------------------------------------------\n' + f'Up: {up}\n' + f'Down: {down}')
+                    continue
+                file.writelines(image.rsplit('\\', 1)[-1] + ' : ' + image2.rsplit('\\', 1)[-1] + ' = ' + str(hashdiff) + ' #' + '\n')
+    file.write('----------------------------------------------------\n' + f'Up: {up}\n' + f'Down: {down}\n')
+    print('done')
 
 # delete all in folder
 def delete(folder):
@@ -199,10 +206,16 @@ duplicate = r'img_folder\billet_dup_test\\'
 cold = r'img_folder\cold\\'
 backup = r'img_folder\backup\\'
 
+test = [r'img_folder\test\2292_7\\', r'img_folder\test\2293_10\\', r'img_folder\test\2294_6\\',
+        r'img_folder\test\2294_8\\', r'img_folder\test\2294_15\\', r'img_folder\test\2294_17\\',
+        r'img_folder\test\2295_5\\', r'img_folder\test\2295_6\\', r'img_folder\test\2296_10\\',
+        r'img_folder\test\2296_12\\']
+
+
 # d_autopair2txt(hot)
-d_autopair2txt(backup)
-
-
+for i in test:
+    print(f'round: {i}')
+    d_autopair2txt(i)
 
 
 

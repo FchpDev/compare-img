@@ -29,26 +29,28 @@ ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 1440
 
 
-PATH_IMAGE_DATA = "C:\\darknet_billet_ocr\\CiraCore\\billet_image\\ciracore\\"
-PATH_IMAGE_BILLET_FACTORY1="C:\\darknet_billet_ocr\\CiraCore\\billet\\billet_crop\\"
+#PATH_IMAGE_DATA = "C:\\darknet_billet_ocr\\CiraCore\\billet_image\\ciracore\\"
+PATH_IMAGE_BILLET_FACTORY1="C:\\darknet_billet_ocr\\CiraCore\\TATA_OCR\\Factory1\\cold\\ocr\\"
 PATH_IMAGE_BILLET_FACTORY2="C:\\darknet_billet_ocr\\CiraCore\\billet\\billet_crop_factory2\\"
 #PATH_IMAGE_BILLET_FACTORY3="C:\\darknet_billet_ocr\\CiraCore\\billet\\billet_crop_factory3\\"
-PATH_IMAGE_BILLET_FACTORY3="C:\\darknet_billet_ocr\\CiraCore\\TATA_OCR\Factory3\cold\ocr\\"
-PATH_IMAGE_HOT_BILLET_FACTORY1="C:\\darknet_billet_ocr\\CiraCore\\billet\\hot_billet_factory1\\"
+PATH_IMAGE_BILLET_FACTORY3="C:\\darknet_billet_ocr\\CiraCore\\TATA_OCR\\Factory3\cold\ocr\\"
+PATH_IMAGE_HOT_BILLET_FACTORY1="C:\\darknet_billet_ocr\\CiraCore\\TATA_OCR\\Factory1\\hot\\ocr\\"
 PATH_IMAGE_HOT_BILLET_FACTORY2="C:\\darknet_billet_ocr\\CiraCore\\billet\\hot_billet_factory2\\"
 #PATH_IMAGE_HOT_BILLET_FACTORY3="C:\\darknet_billet_ocr\\CiraCore\\billet\\hot_billet_factory3\\"
 PATH_IMAGE_HOT_BILLET_FACTORY3="C:\\darknet_billet_ocr\\CiraCore\\TATA_OCR\\Factory3\hot\ocr\\"
-PATH_IMAGE_DATA_FACTORY1="C:\\darknet_billet_ocr\\CiraCore\\billet_image\\ciracore\\"
+PATH_IMAGE_DATA_FACTORY1="C:\\darknet_billet_ocr\\CiraCore\\TATA_OCR\\Factory1\\image_data\\"
 PATH_IMAGE_DATA_FACTORY2="C:\\darknet_billet_ocr\\CiraCore\\billet_image\\ciracore_factory2\\"
 #PATH_IMAGE_DATA_FACTORY3="C:\\darknet_billet_ocr\\CiraCore\\billet_image\\ciracore_factory3\\"
 PATH_IMAGE_DATA_FACTORY3="C:\\darknet_billet_ocr\\CiraCore\\TATA_OCR\\Factory3\\image_data"
-PATH_IMAGE_TEMP="C:\\darknet_billet_ocr\\CiraCore\\billet\\image_temp"
+PATH_IMAGE_TEMP_FACTORY1="C:\\darknet_billet_ocr\\CiraCore\\TATA_OCR\\Factory1\\image_temp\\"
+PATH_IMAGE_TEMP_FACTORY2=""
+PATH_IMAGE_TEMP_FACTORY3=""
 
 # ADD BY First
-PATH_BACKUP_IMAGE_BILLET_FACTORY1=""
+PATH_BACKUP_IMAGE_BILLET_FACTORY1="C:\\darknet_billet_ocr\\CiraCore\\TATA_OCR\\Factory1\\cold\\backup\\"
 PATH_BACKUP_IMAGE_BILLET_FACTORY2=""
 PATH_BACKUP_IMAGE_BILLET_FACTORY3="C:\\darknet_billet_ocr\\CiraCore\\TATA_OCR\\Factory3\\cold\\backup\\"
-PATH_BACKUP_IMAGE_HOT_BILLET_FACTORY1=""
+PATH_BACKUP_IMAGE_HOT_BILLET_FACTORY1="C:\\darknet_billet_ocr\\CiraCore\\TATA_OCR\\Factory1\\hot\\backup\\"
 PATH_BACKUP_IMAGE_HOT_BILLET_FACTORY2=""
 PATH_BACKUP_IMAGE_HOT_BILLET_FACTORY3="C:\\darknet_billet_ocr\\CiraCore\\TATA_OCR\\Factory3\\hot\\backup\\"
 
@@ -78,6 +80,10 @@ list_of_data_path= ["",
                     PATH_IMAGE_DATA_FACTORY1,
                     PATH_IMAGE_DATA_FACTORY2, 
                     PATH_IMAGE_DATA_FACTORY3]
+list_of_image_temp_path= ["",
+                    PATH_IMAGE_TEMP_FACTORY1,
+                    PATH_IMAGE_TEMP_FACTORY2, 
+                    PATH_IMAGE_TEMP_FACTORY3]
 
 # ADD BY First
 list_of_backup_image_path= ["",

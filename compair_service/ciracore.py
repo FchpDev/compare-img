@@ -6,9 +6,9 @@ import imagehash, shutil, glob, os, cfg
 #payload['last_image'] = "king"+str(random.random())
 # temp = ['C:', 'darknet_billet_ocr', 'CiraCore', 'billet', 'Duplicate', 'folder_backup', '1653535139059_000.jpg']
 
-#################################
-
 factory_number = payload['factory_number']
+
+#################################
 
 def collect_path(path):
     i = 0
@@ -29,6 +29,7 @@ def lasted_file(folder):
 
 # pair
 def pare_10(file_, bf, tg):
+    fix_hash = 7
     flag = False
     img1 = Image.open(file_)
     #print(f'img: {img1}')
@@ -50,7 +51,7 @@ def pare_10(file_, bf, tg):
         hashdif = hash1 - hash2
         print(f'hashdiff {hashdif}')
         # check hashdiff
-        if hashdif >= 10:
+        if hashdif > fix_hash:
             flag = True
         elif file_ != image:
             flag = False
@@ -69,13 +70,12 @@ def pare_10(file_, bf, tg):
 
 # define folder
 folder_backup = cfg.list_of_backup_image_path[factory_number]
-target = cfg.list_of_image_path[factory_number]
-
 print(f'folder_backup: {folder_backup}')
+target = cfg.list_of_image_path[factory_number]
 print(f'target: {target}')
 
 # run main
-temp = payload['last_image']
+temp = payload['last_image_factory1']
 check = collect_path(temp)
 print(f'check: {check}')
 # check = ''
@@ -87,11 +87,11 @@ try:
     last_10_size = len(last_10)
     print(f'last_10(size): {last_10_size}')
     #print(f'last_10: {last_10}')
-    if len(last_10) == 1:
-        size_tg = len(glob.glob(target + '*.jpg'))
-        if size_tg == 0:
-            shutil.copy(current, target)
-            pass
+    # if len(last_10) == 1:
+    #     size_tg = len(glob.glob(target + '*.jpg'))
+    #     if size_tg == 0:
+    #         shutil.copy(current, target)
+    #         pass
     if current:
         if check == current:
             print('folder backup is\'n update')
@@ -99,7 +99,7 @@ try:
         elif check != current and current != '':
             print(f'current: {current}')
             pare_10(current, folder_backup, target)
-            payload['last_image'] = current.replace('\\', '\\\\')
+            payload['last_image_factory1'] = current.replace('\\', '\\\\')
             #check = current
             print(f'---------------------------------\n')
     elif not current:

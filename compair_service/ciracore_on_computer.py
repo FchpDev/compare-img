@@ -93,6 +93,40 @@ def pare_10(file_, bf, tg):
 current = ''
 check = ''
 
+# define folder
+folder_backup = cfg.list_of_backup_image_path[factory_number]
+target = cfg.list_of_image_path[factory_number]
+cold = r'D:\Project\CodingHub\tata\compare-img\img_folder\cold\\'
+hot = r'D:\Project\CodingHub\tata\compare-img\img_folder\hot\\'
+
+jpg_list = glob.glob(cold + '*.jpg')
+while True:
+    try:
+        current = lasted_file(folder_backup)
+        last_10 = glob.glob(folder_backup + '*.jpg')[-11:-1]
+        last_10_size = len(last_10)
+        print(f'last_10(size): {last_10_size}')
+        #print(f'last_10: {last_10}')
+        # if len(last_10) == 1:
+        #     size_tg = len(glob.glob(target + '*.jpg'))
+        #     if size_tg == 0:
+        #         shutil.copy(current, target)
+        #         pass
+        if current:
+            if check == current and check == last_10[0]:
+                print('folder backup is\'n update')
+                continue
+            elif check != current and current != '':
+                print(f'current: {current}')
+                pare_10(current, folder_backup, target)
+                # payload['last_image_factory3'] = current.replace('\\', '\\\\')
+                check = current
+                print(f'---------------------------------\n')
+        elif not current:
+                print('Program doesn\'t have current file')
+                continue
+    except Exception as e:
+        print(f'Exception {e}')
 
 # while True:
 #     try:
@@ -114,34 +148,27 @@ check = ''
 #         print(f'Exception {e}')
 #         pass
 
-
-# define folder
-folder_backup = cfg.list_of_backup_image_path[factory_number]
-target = cfg.list_of_image_path[factory_number]
-cold = r'D:\Project\CodingHub\tata\compare-img\img_folder\cold\\'
-hot = r'D:\Project\CodingHub\tata\compare-img\img_folder\hot\\'
-
-jpg_list = glob.glob(cold + '*.jpg')
-for j in jpg_list:
-    try:
-        current = lasted_file(folder_backup)
-        if current:
-            if check == current:
-                print('folder backup isn\'t update')
-                pass
-            elif check != current and current != '':
-                print(f'current: {current}')
-                pare_10(current, folder_backup, target)
-                # payload['last_image'] = current.replace('\\', '\\\\)
-                check = current
-            print(f'---------------------------------\n')
-        if not current:
-            print('Program doesn\'t have current file')
-            pass
-    except Exception as e:
-        print(f'Exception {e}')
-        pass
-    shutil.copy(j, folder_backup)
+# for j in jpg_list:
+#     try:
+#         current = lasted_file(folder_backup)
+#         if current:
+#             if check == current:
+#                 print('folder backup isn\'t update')
+#                 pass
+#             elif check != current and current != '':
+#                 print(f'current: {current}')
+#                 pare_10(current, folder_backup, target)
+#                 # payload['last_image'] = current.replace('\\', '\\\\)
+#                 check = current
+#             print(f'---------------------------------\n')
+#         if not current:
+#             print('Program doesn\'t have current file')
+#             pass
+#     except Exception as e:
+#         print(f'Exception {e}')
+#         pass
+#     shutil.copy(j, folder_backup)
+        
 
 # delete(folder_backup)
 # delete(target)

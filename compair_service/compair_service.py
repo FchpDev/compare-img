@@ -23,7 +23,7 @@ def lasted_file(folder):
 
 # pair
 def pare_10(file_, bf, tg, txt):
-    fix_hash = 7
+    fix_hash = 4
     flag = False
     img1 = Image.open(file_)
     #print(f'img: {img1}')
@@ -67,7 +67,69 @@ def pare_10(file_, bf, tg, txt):
     elif flag == False:
         print('Dupplicate')
         txt.write('no movement')
-    txt.write('------------------------------------------------------------' + '\n')
+    txt.write('\n------------------------------------------------------------' + '\n')
+'''
+# compare_new
+def compare(file_, bf, tg):
+    fix_hash = 3
+    flag = False
+    img1 = Image.open(file_)
+    hash1 = imagehash.dhash(img1, hash_size = 8)
+    # print(f'hash: {hash1}')
+
+# get 10 lasted file in  directory
+    last_6 = glob.glob(bf + '*.jpg')[-6:-1]
+    # print(f'last_10: {last_10}')
+
+# loop for compare
+    for image in last_6:
+        flag = False
+    # load image2 and hash
+        img = Image.open(image)
+        hash2 = imagehash.dhash(img, hash_size = 8)
+
+    # Calculate hashdif
+        hashdif = hash1 - hash2
+
+    # check duplicate
+        # isn't duplicate
+        if hashdif > fix_hash:
+            flag = True
+        # duplicate
+        elif hashdif <= fix_hash and file_ != image: 
+            flag = False
+            break
+        else:
+            print('same photo')
+        t.write(f'\n{file_} loop flag: {flag}\n')
+
+    t.write(f'\nbefore if\n')
+    # copy if isn't Duplicate
+    if flag == True:
+        print(f'flag: {flag}')
+        t.write(f'\n{file_} isn\'t duplicate - flag: {flag} - hashdif: {hashdif}\n')
+        now = datetime.now()
+        current_time = now.strftime("%H-%M-%S")
+        file_n = file_.replace("backup", "ocr")
+        file_n = file_n.replace(".jpg",  '_' + current_time + '.jpg')
+        shutil.copy(file_, file_n)
+        flag = False
+        # remove Duplicate image
+    else:
+        try:
+            if os.path.exists(file_):
+                # os.remove(file_)
+                # print(f'remove dup_file {file_}')
+                print(f'flag: {flag}')
+                t.write(f'\nremove dup_file {file_} - flag: {flag} - hashdif: {hashdif}\n')
+            else:
+                print("The file does not exist")
+                print(f'flag: {flag}')
+                t.write(f'\nThe file does not exist-flag:{flag}\n')
+                # print(f'duplicate image: {file_}')
+        except Exception as e:
+            print(f'Exception: {e}')
+'''
 
 def rename(folder):
     file_list = glob.glob(folder + '*.jpg')
@@ -76,11 +138,6 @@ def rename(folder):
         os.rename(file_,folder + str(name) + '.jpg')
         name += 1
 
-duplicate = r'img_folder\billet_dup_test\\'
-cold = r'img_folder\cold\\'
-hot = r'img_folder\hot\\'
-hot_factory1 = r'img_folder\hot_billet_factory1\\'
-# rename(hot_factory1)
 
 
 

@@ -1,3 +1,4 @@
+from cgi import test
 import compair_service as cm
 import shutil, glob
 
@@ -15,6 +16,10 @@ hot = r'img_folder\hot\\'                                   # hot billet
 cold_backup = r'img_folder\from_anyDesk\cold\backup\\'
 cold8_backup = r'img_folder\from_anyDesk\cold_hashdif-8\backup\\'
 
+duplicate_result = r'img_folder\backup_result_duplicate\\'  # backup_result_duplicate
+
+test_for_result = r'img_folder\Test_result_for_continue_project\\'
+
 # while True:
 #     try:
 #         current = cm.lasted_file(folder_backup)
@@ -29,8 +34,10 @@ cold8_backup = r'img_folder\from_anyDesk\cold_hashdif-8\backup\\'
 #     print(f'---------------------------------\n')
 
 check = ''
-jpg_list = glob.glob(cold8_backup + '*.jpg')
-txt = open('compare_service.txt', 'w')
+jpg_list = glob.glob(test_for_result + '*.jpg')
+folder_name = test_for_result.split('\\')[-3]
+txt = open(f'compare_service_{folder_name}.txt', 'w')
+
 r = 0
 for j in jpg_list:
     try:
@@ -48,9 +55,9 @@ for j in jpg_list:
         cm.pare_10(current, folder_backup, target, txt)
         check = current
         r += 1
-    print('-------------------------------------------\n')
+    print('\n-------------------------------------------\n')
     shutil.copy(j, folder_backup)
 
 # cm.delete(target)
 # cm.delete(folder_backup)
-# cm.rename()
+# cm.rename(test_for_result)
